@@ -1,0 +1,52 @@
+package com.zch1001.pi.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
+public class TeacherQueryQuestionResponse {
+    @JsonProperty("code")
+    private int code;
+
+    @JsonProperty("msg")
+    private String msg;
+
+    @JsonProperty("data")
+    private Data data;
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
+    }
+
+    public class Data {
+        @JsonProperty("questions_list")
+        private List<questionInfo> questionsList;
+
+        public void setQuestionsList(List<questionInfo> questionsList) {
+            this.questionsList = questionsList;
+        }
+    }
+
+    public class questionInfo {
+        @JsonProperty("question_id")
+        private int questionId;
+
+        @JsonProperty("name")
+        private String name;
+
+        public void setQuestionId(int questionId) {
+            this.questionId = questionId;
+        }
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+}
